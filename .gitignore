@@ -1,19 +1,107 @@
-# Environnements virtuels
-.venv/
-__pycache__/
-*.pyc
+# Football PageRank Dashboard
 
-# Fichiers macOS
-.DS_Store
+## Présentation du projet
+Ce projet applique l’algorithme **PageRank** au réseau du football européen.  
+Chaque club est modélisé comme un **nœud**, et chaque match crée une **arête dirigée du perdant vers le gagnant**.  
+L’objectif est de mesurer **l’influence structurelle** des clubs dans un graphe de matchs réels (2008–2016).
 
-# Dossiers temporaires / build
-build/
-dist/
-*.egg-info/
+Ce tableau de bord interactif, développé avec **Dash** et **Plotly**, offre une visualisation moderne et professionnelle des résultats, combinant rigueur analytique et design soigné.
 
-# Fichiers VS Code
-.vscode/
+---
 
-# Données volumineuses
-data/*.csv
-data/*.xlsx
+## Objectifs du projet
+- Illustrer l’application d’un algorithme de graphes à un domaine concret (le sport).  
+- Mettre en œuvre un pipeline de données complet : **extraction → traitement → modélisation → visualisation**.  
+- Concevoir une interface professionnelle en **Python** adaptée à un usage académique et portfolio.  
+- Démontrer les compétences d’un futur **data professional** à travers un cas d’usage original et documenté.
+
+---
+
+## Architecture du projet
+
+```
+football-pagerank/
+│
+├── data/
+│   ├── database.sqlite                 # Base Kaggle (Match, Team, League)
+│   ├── team_pagerank_with_league.csv   # Résultats PageRank globaux
+│   └── team_pagerank_yearly.csv        # (optionnel) par saison
+│
+├── src/
+│   ├── extract_data.py                 # Extraction depuis SQLite
+│   ├── build_graph.py                  # Construction du graphe
+│   ├── compute_pagerank.py             # Calcul global du PageRank
+│   ├── compute_pagerank_by_year.py     # Calcul par saison
+│   └── dashboard_pagerank.py           # Tableau de bord Dash
+│
+├── assets/
+│   └── photo_mevlut.png                # Photo professionnelle
+│
+├── requirements.txt
+├── .gitignore
+└── README.md
+```
+
+---
+
+## Stack technique
+- **Python 3.9+**
+- **Dash** & **Plotly** → visualisation et interactivité
+- **Dash Bootstrap Components** → design moderne
+- **NetworkX** → calcul du PageRank
+- **Pandas / NumPy** → manipulation de données
+- **SQLite** → base de données source
+
+---
+
+## Fonctionnalités du tableau de bord
+- Classement dynamique des clubs selon le score PageRank  
+- Sélection interactive du Top N clubs  
+- Analyse de la distribution des scores (histogramme, indices de compétitivité et de diversité)  
+- Visualisation comparative par ligue et par pays  
+- Section explicative claire : méthodologie, limites, perspectives  
+- Mode **clair/sombre** global  
+- Interface responsive et design professionnel
+
+---
+
+## Lancement du projet
+
+```bash
+# 1. Cloner le dépôt
+git clone https://github.com/<ton_nom_utilisateur>/football-pagerank.git
+cd football-pagerank
+
+# 2. Créer un environnement virtuel
+python3 -m venv .venv
+source .venv/bin/activate
+
+# 3. Installer les dépendances
+pip install -r requirements.txt
+
+# 4. Lancer le dashboard
+python src/dashboard_pagerank.py
+```
+
+Puis ouvrir le navigateur à l’adresse :
+```
+http://127.0.0.1:8060/
+```
+
+---
+
+## Auteur
+**Mevlut Cakin**  
+Master 2 Big Data, Analyse et Business Intelligence (BIDABI)  
+Université Sorbonne Paris-Nord – Année 2025  
+
+---
+
+## Licence
+Projet académique à usage pédagogique.  
+Toute réutilisation est autorisée avec mention de l’auteur.
+
+---
+
+### Signature
+Projet réalisé dans le cadre du Master BIDABI – démonstration de compétence en **analyse, data engineering et visualisation de données réelles.**data/database.sqlite
