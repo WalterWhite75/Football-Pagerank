@@ -18,11 +18,13 @@ Ce tableau de bord interactif développé avec Dash et Plotly offre une visualis
 ---
 
 ## Architecture du projet
--football-pagerank/
+```
+football-pagerank/
 │
 ├── .gitignore                # Fichiers et dossiers ignorés par Git (ex: .venv, data lourdes, etc.)
 ├── README.md                 # Documentation principale du projet
 ├── requirements.txt          # Liste des dépendances Python
+│
 ├── assets/                   # Ressources statiques (images, CSS, logos…)
 │   ├── photo_mevlut.png
 │   └── custom.css            # (optionnel) Styles additionnels
@@ -37,3 +39,5 @@ Ce tableau de bord interactif développé avec Dash et Plotly offre une visualis
 │   └── dashboard_pagerank.py # Application Dash (visualisation interactive)
 │
 └── .venv/                    # Environnement virtuel local (non versionné)
+```
+
