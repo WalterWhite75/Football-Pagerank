@@ -1,0 +1,19 @@
+# Environnements virtuels
+.venv/
+__pycache__/
+*.pyc
+
+# Fichiers macOS
+.DS_Store
+
+# Dossiers temporaires / build
+build/
+dist/
+*.egg-info/
+
+# Fichiers VS Code
+.vscode/
+
+# Données volumineuses
+data/*.csv
+data/*.xlsx
